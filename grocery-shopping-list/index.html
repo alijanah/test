@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery Shopping List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      /* Custom scrollbar for a cleaner look */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1; /* slate-300 */
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8; /* slate-500 */
+      }
+      .item-text-bought {
+        text-decoration: line-through;
+        color: #64748b; /* slate-500 */
+      }
+      .item-card-bought {
+        background-color: #f8fafc; /* slate-50 */
+        opacity: 0.8;
+      }
+      .icon-button svg {
+        width: 1.25rem; /* w-5 */
+        height: 1.25rem; /* h-5 */
+      }
+    </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-100">
+    <div class="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto">
+        <header class="mb-10 text-center">
+          <h1 class="text-4xl font-bold text-sky-600 tracking-tight">
+            My Grocery List
+          </h1>
+          <p class="mt-2 text-lg text-slate-600">
+            Plan your shopping trips with ease.
+          </p>
+        </header>
+
+        <form id="addItemForm" class="flex gap-3 mb-8">
+          <input
+            type="text"
+            id="itemNameInput"
+            placeholder="E.g., Apples, Milk, Bread..."
+            class="flex-grow p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-shadow"
+            aria-label="New item name"
+          />
+          <button
+            type="submit"
+            class="flex items-center justify-center bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Add Item
+          </button>
+        </form>
+
+        <div class="mb-8">
+           <input
+            type="text"
+            id="searchInput"
+            placeholder="Search items..."
+            class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition-shadow mb-6"
+            aria-label="Search shopping items"
+          />
+        </div>
+
+        <section class="mb-12">
+          <h2 class="text-2xl font-semibold text-slate-700 mb-6 pb-2 border-b-2 border-sky-200">
+            To Buy (<span id="toBuyCount">0</span>)
+          </h2>
+          <div id="toBuyListContainer" class="space-y-3">
+            {/* <!-- Items will be injected here by JavaScript --> */}
+          </div>
+          <p id="toBuyEmptyMessage" class="text-slate-500 text-center py-4" style="display: none;"></p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-slate-700 mb-6 pb-2 border-b-2 border-slate-200">
+            Bought (<span id="boughtCount">0</span>)
+          </h2>
+          <div id="boughtListContainer" class="space-y-3">
+            {/* <!-- Items will be injected here by JavaScript --> */}
+          </div>
+          <p id="boughtEmptyMessage" class="text-slate-500 text-center py-4" style="display: none;"></p>
+        </section>
+
+         <footer class="mt-12 text-center text-sm text-slate-500">
+          <p>&copy; <span id="currentYear"></span> Shopping List App. Happy Shopping!</p>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html><link rel="stylesheet" href="index.css">
+<script src="index.tsx" type="module"></script>
